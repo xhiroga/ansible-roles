@@ -1,17 +1,30 @@
 ---
 # tasks file for ubuntu_kvm_hypervisor
+# https://help.ubuntu.com/community/KVM/Installation
+# https://tdomy.com/2021/02/how-to-install-kvm-for-ubuntu/
+- name: Pre installation checklist
+  command: "egrep -c '(svm|vmx)' /proc/cpuinfo" # 0 means CPU has no hardware virtualization support. 1 or more has support.
+- name: KVM checker
+  apt:
+    name: cpu-checker
+- name: check KVM
+  command: kvm-ok
+- name: Check processor type
+  command: "egrep -c ' lm ' /proc/cpuinfo" # 0 means 32bit and 1 or more means 64bit
+- name: Check kernel type
+  command: "uname -m"
 # https://dev.classmethod.jp/articles/run-linux-kvm-vm-on-ec2-baremetal/
-  - name: Install KVM
-    apt:
-      name:
-        - qemu-kvm
-        - libvirt-daemon-system
-        - libvirt-clients
-        - bridge-utils
-  - name: Add Users to libvirt
-    command: "adduser {{ user }} libvirt"
-  - name: Add Users to kvm
-    command: "adduser {{ user }} kvm"
-  # https://docs.ansible.com/ansible/2.6/modules/meta_module.html
-  - name: reset ssh connection to allow user changes to affect 'current login user'
-    meta: reset_connection
+- name: Install KVM
+  apt:
+    name:
+      - qemu-kvm
+      - libvirt-daemon-system
+      - libvirt-clients
+      - bridge-utils
+- name: Add Users to libvirt
+  command: "adduser {{ user }} libvirt"
+- name: Add Users to kvm
+  command: "adduser {{ user }} kvm"
+# https://docs.ansible.com/ansible/2.6/modules/meta_module.html
+- name: reset ssh connection to allow user changes to affect 'current login user'
+  meta: reset_connection
