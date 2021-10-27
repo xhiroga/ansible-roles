@@ -1,0 +1,17 @@
+---
+# tasks file for ubuntu_kvm_hypervisor
+# https://dev.classmethod.jp/articles/run-linux-kvm-vm-on-ec2-baremetal/
+  - name: Install KVM
+    apt:
+      name:
+        - qemu-kvm
+        - libvirt-daemon-system
+        - libvirt-clients
+        - bridge-utils
+  - name: Add Users to libvirt
+    command: "adduser {{ user }} libvirt"
+  - name: Add Users to kvm
+    command: "adduser {{ user }} kvm"
+  # https://docs.ansible.com/ansible/2.6/modules/meta_module.html
+  - name: reset ssh connection to allow user changes to affect 'current login user'
+    meta: reset_connection
