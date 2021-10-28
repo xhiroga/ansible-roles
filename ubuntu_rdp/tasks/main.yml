@@ -1,9 +1,8 @@
 ---
-# tasks file for ubuntu_desktop
+# tasks file for ubuntu_rdp
 - name: install ubuntu desktop
   apt:
     name:
-      - ubuntu-desktop
       - xrdp
 
 # Enabled by default
