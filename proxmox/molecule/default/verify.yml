@@ -1,10 +1,14 @@
 ---
-# This is an example playbook to execute Ansible tests.
 
 - name: Verify
   hosts: all
   gather_facts: false
   tasks:
-  - name: Example assertion
+  - name: Show file
+    command: grep '{{ ignore_no_valid_subscription }}' '/usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js'
+    register: result
+  - name: Assert output
     assert:
-      that: true
+      that: "'{{ ignore_no_valid_subscription }}' in result.stdout"
+  vars:
+    ignore_no_valid_subscription: 'orig_cmd();return;let res = response.result;'
