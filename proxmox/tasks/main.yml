@@ -1,2 +1,8 @@
 ---
 # tasks file for proxmox
+- name: Disable subscription dialog
+  lineinfile:
+    path: /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js
+    state: present
+    regexp: '^let res = response.result;$'
+    line: '                    orig_cmd();return;let res = response.result;'
