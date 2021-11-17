@@ -22,12 +22,6 @@
     src: /etc/machine-id
     state: link
 
-- name: Symbolic link to machine id
-  ansible.builtin.file:
-    path: /var/lib/dbus/machine-id
-    src: /etc/machine-id
-    state: link
-
 - name: Clean database and packages
   ansible.builtin.command:
     cmd: apt clean
