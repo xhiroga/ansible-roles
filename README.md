@@ -2,10 +2,8 @@
 [@xhiroga](https://github.com/xhiroga)'s ansible roles.
 
 
-## Development
+## Scaffolding
 
 ```shell
-# Scaffolding
-ansible-galaxy init dotfiles
+molecule init role dotfiles
 ```
-
