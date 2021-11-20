@@ -5,5 +5,5 @@
 ## Scaffolding
 
 ```shell
-molecule init role dotfiles
+molecule init role dotfiles -d docker
 ```
