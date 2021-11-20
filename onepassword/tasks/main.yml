@@ -1,0 +1,12 @@
+---
+# tasks file for onepassword
+- name: Installing {{ onepassword_pre_reqs_debian }} for 1Password
+  apt:
+    name: "{{ onepassword_pre_reqs_debian }}"
+    update_cache: yes
+# Note: apt-key is deprecated - [第675回 apt\-keyはなぜ廃止予定となったのか：Ubuntu Weekly Recipe｜gihyo\.jp … 技術評論社](https://gihyo.jp/admin/serial/01/ubuntu-recipe/0675)
+- name: Add the key for the 1Password apt repository
+  apt_key:
+    keyring: "{{ onepassword_repo_debian_gpg_key_keyring }}"
+    state: present
+    url: "{{ onepassword_repo_debian_gpg_key_url }}"

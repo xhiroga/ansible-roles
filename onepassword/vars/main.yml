@@ -1,0 +1,5 @@
+---
+onepassword_pre_reqs_debian:
+  - gnupg2
+onepassword_repo_debian_gpg_key_url: https://downloads.1password.com/linux/keys/1password.asc
+onepassword_repo_debian_gpg_key_keyring: /usr/share/keyrings/1password-archive-keyring.gpg

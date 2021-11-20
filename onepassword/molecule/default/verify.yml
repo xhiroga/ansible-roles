@@ -1,0 +1,12 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: Check gpg file exists
+    stat:
+      path: /usr/share/keyrings/1password-archive-keyring.gpg
+    register: stat_result
+  - name: Assert gpg file exists
+    assert:
+      that: stat_result
