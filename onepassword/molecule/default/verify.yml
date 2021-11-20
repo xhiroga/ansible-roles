@@ -6,7 +6,17 @@
   - name: Check gpg file exists
     stat:
       path: /usr/share/keyrings/1password-archive-keyring.gpg
-    register: stat_result
+    register: gpg_file_result
+
   - name: Assert gpg file exists
     assert:
-      that: stat_result
+      that: gpg_file_result
+
+  - name: Check source list exists
+    stat:
+      path: /etc/apt/sources.list.d/1password.list
+    register: source_list_result
+
+  - name: Assert source list exists
+    assert:
+      that: source_list_result
