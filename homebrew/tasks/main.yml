@@ -1,0 +1,12 @@
+---
+# tasks file for homebrew
+- name: Install requirements
+  apt:
+    name:
+      - build-essential
+      - procps
+      - curl
+      - file
+      - git
+    state: present
+    update_cache: yes
