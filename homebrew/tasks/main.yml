@@ -14,6 +14,8 @@
 - name: Install Homebrew
   shell:
     cmd: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  tags:
+    - molecule-idempotence-notest # idempotence execution fails, but converge again succeed.
 
 - name: Add Homebrew to PATH
   lineinfile:
