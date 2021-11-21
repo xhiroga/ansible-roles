@@ -13,3 +13,9 @@
 
 - name: Install Homebrew
   shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+- name: Add Homebrew to PATH
+  lineinfile:
+    line: 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'
+    path: ~/.profile
+    state: present
