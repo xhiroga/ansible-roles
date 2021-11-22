@@ -1,9 +1,0 @@
----
-- name: Install dev tools
-  apt:
-    name:
-      - curl
-      - git
-      - vim
-    state: present
-    update_cache: yes
