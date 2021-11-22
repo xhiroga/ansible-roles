@@ -4,6 +4,7 @@
   apt:
     name: "{{ onepassword_pre_reqs_debian }}"
     update_cache: yes
+  become: yes
 
 # Note: apt-key is deprecated - [第675回 apt\-keyはなぜ廃止予定となったのか：Ubuntu Weekly Recipe｜gihyo\.jp … 技術評論社](https://gihyo.jp/admin/serial/01/ubuntu-recipe/0675)
 - name: Add the key for the 1Password apt repository
@@ -24,3 +25,4 @@
     name: "{{ onepassword_app_name }}"
     state: present
     update_cache: yes
+  become: yes
