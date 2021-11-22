@@ -1,5 +1,13 @@
 ---
-# tasks file for homebrew
+- name: Enable to sudo without password because install Homebrew need sudo.
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '^%sudo   ALL=(ALL:ALL) ALL'
+    line: '%sudo   ALL=(ALL:ALL) NOPASSWD:ALL'
+    validate: '/usr/sbin/visudo -cf %s'
+  become: yes
+
 - name: Install requirements
   apt:
     name:
@@ -10,10 +18,13 @@
       - git
     state: present
     update_cache: yes
+  become: yes
 
 - name: Install Homebrew
   shell:
-    cmd: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # [bash \- Bypassing prompt \(to press return\) in homebrew install script \- Stack Overflow](https://stackoverflow.com/questions/25535407/bypassing-prompt-to-press-return-in-homebrew-install-script)
+    # When run on docker with molecule, stdin is not TTY. When run on Ubuntu, stdin is TTY.
+    cmd: /bin/bash -cx "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" </dev/null
   tags:
     - molecule-idempotence-notest # idempotence execution fails, but converge again succeed.
 
