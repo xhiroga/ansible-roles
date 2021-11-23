@@ -6,4 +6,4 @@
   - name: Try to install package from Homebrew
     homebrew:
       name: hello
-      path: '/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+      path: '/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin'
