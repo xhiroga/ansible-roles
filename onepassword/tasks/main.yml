@@ -66,6 +66,7 @@
     dest: /usr/local/bin/op
     mode: 755
     remote_src: yes
+  become: yes
 
 - name: Remove temporary directory
   ansible.builtin.file:
