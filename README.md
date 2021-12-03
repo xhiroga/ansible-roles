@@ -7,6 +7,7 @@
 Install [Poetory](https://python-poetry.org/).
 
 ```shell
+brew  install ansible
 poetry install
 ```
 
