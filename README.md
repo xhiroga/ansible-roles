@@ -2,8 +2,17 @@
 [@xhiroga](https://github.com/xhiroga)'s ansible roles.
 
 
+## Prerequisites
+
+Install [Poetory](https://python-poetry.org/).
+
+```shell
+poetry install
+```
+
 ## Scaffolding
 
 ```shell
-molecule init role dotfiles -d docker
+poetry shell
+$ molecule init role dotfiles -d docker
 ```
