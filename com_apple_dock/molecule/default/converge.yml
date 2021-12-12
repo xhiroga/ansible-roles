@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include com_apple_dock"
+      include_role:
+        name: "com_apple_dock"

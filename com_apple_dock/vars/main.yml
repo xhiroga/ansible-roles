@@ -1,0 +1,4 @@
+---
+com_apple_dock_plist: ~/Library/Preferences/com.apple.dock.plist
+com_apple_dock_autohide: false
+com_apple_dock_orientation: bottom
