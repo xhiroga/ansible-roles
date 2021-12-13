@@ -1,4 +1,4 @@
 ---
 com_apple_dock_plist: ~/Library/Preferences/com.apple.dock.plist
-com_apple_dock_autohide: false
-com_apple_dock_orientation: bottom
+com_apple_dock_autohide: 0 # 0: false, 1: true
+com_apple_dock_orientation: bottom # bottom, left, right
