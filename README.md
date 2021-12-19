@@ -1,4 +1,4 @@
-# Ansible Roles
+# Ansible Collection - xhiroga.roles
 [@xhiroga](https://github.com/xhiroga)'s ansible roles.
 
 
@@ -15,5 +15,9 @@ poetry install
 
 ```shell
 poetry shell
-$ molecule init role dotfiles -d docker
+molecule init role dotfiles -d docker
 ```
+
+## References and inspiration
+
+- [manala/ansible\-roles: Manala ansible roles](https://github.com/manala/ansible-roles)
