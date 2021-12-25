@@ -3,7 +3,7 @@ name: Docker
 on:
   push:
     branches:
-      - chore/github-container-registry
+      - main
 
 env:
   # Use docker.io for Docker Hub if empty
