@@ -15,6 +15,7 @@ poetry install
 
 ```shell
 poetry shell
+cd roles
 molecule init role dotfiles -d docker
 ```
 
