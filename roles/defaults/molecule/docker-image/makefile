@@ -1,2 +1,2 @@
 docker-build:
-	docker build . -t xhiroga-ansible-role-defaults
+	docker build . -t xhiroga/ansible-role-defaults
