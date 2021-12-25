@@ -1,0 +1,13 @@
+---
+- name: Enable/Disable autohide
+  shell: defaults write com.apple.dock autohide {{ com_apple_dock_autohide }}
+
+- name: The orientation of the dock.
+  shell: defaults write com.apple.dock orientation {{ com_apple_dock_orientation }}
+
+- name: Screencapture location
+  shell: |
+    mkdir -p {{ com_apple_screencapture_location }}
+    defaults write com.apple.screencapture location {{ com_apple_screencapture_location }}
+
+# TODO: sudo killall Dock
