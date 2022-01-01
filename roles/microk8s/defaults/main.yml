@@ -1,0 +1,5 @@
+---
+microk8s_plugins:
+  - dashboard
+  - dns
+  - storage

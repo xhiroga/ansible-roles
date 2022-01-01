@@ -1,0 +1,12 @@
+---
+- name: Install microk8s
+  community.general.snap:
+    name: microk8s
+    channel: latest/edge/strict
+    classic: true
+# [Getting started with MicroK8s on Ubuntu Core \| Ubuntu](https://ubuntu.com/tutorials/getting-started-with-microk8s-on-ubuntu-core)
+- name: Enable plugins
+  ansible.builtin.command:
+    cmd: "microk8s.enable {{ item }}"
+  loop: "{{ microk8s_plugins }}"
+  become: true
