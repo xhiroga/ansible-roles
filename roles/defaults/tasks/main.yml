@@ -10,4 +10,23 @@
     mkdir -p {{ com_apple_screencapture_location }}
     defaults write com.apple.screencapture location {{ com_apple_screencapture_location }}
 
+- name: com.apple.controlcenter
+  shell: |
+    defaults write com.apple.controlcenter "NSStatusItem Visible Battery" {{ com_apple_controlcenter_nsstatusitem_visible_battery }}
+    defaults write com.apple.controlcenter "NSStatusItem Visible BentoBox" {{ com_apple_controlcenter_nsstatusitem_visible_bentobox }}
+    defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" {{ com_apple_controlcenter_nsstatusitem_visible_bluetooth }}
+    defaults write com.apple.controlcenter "NSStatusItem Visible Clock" {{ com_apple_controlcenter_nsstatusitem_visible_clock }}
+    defaults write com.apple.controlcenter "NSStatusItem Visible DoNotDisturb" {{ com_apple_controlcenter_nsstatusitem_visible_donotdisturb }}
+    defaults write com.apple.controlcenter "NSStatusItem Visible WiFi" {{ com_apple_controlcenter_nsstatusitem_visible_wifi }}
+
+- name: com.apple.finder
+  shell: |
+    defaults write com.apple.finder AppleShowAllFiles {{ com_apple_finder_apple_show_all_files }}
+    defaults write com.apple.finder FXEnableExtensionChangeWarning {{ com_apple_finder_fx_enable_extension_change_warning }}
+    killall Finder
+
+- name: com.apple.HIToolbox
+  shell: |
+    defaults write com.apple.HIToolbox AppleDictationAutoEnable {{ com_apple_HIToolbox_AppleDictationAutoEnable }}
+
 # TODO: sudo killall Dock

@@ -3,3 +3,15 @@ com_apple_dock_plist: ~/Library/Preferences/com.apple.dock.plist
 com_apple_dock_autohide: 0 # 0: false, 1: true
 com_apple_dock_orientation: bottom # bottom, left, right
 com_apple_screencapture_location: ~/screencapture
+
+com_apple_controlcenter_nsstatusitem_visible_battery: 1
+com_apple_controlcenter_nsstatusitem_visible_bentobox: 1
+com_apple_controlcenter_nsstatusitem_visible_bluetooth: 1
+com_apple_controlcenter_nsstatusitem_visible_clock: 1
+com_apple_controlcenter_nsstatusitem_visible_donotdisturb: 1
+com_apple_controlcenter_nsstatusitem_visible_wifi: 1
+
+com_apple_finder_apple_show_all_files: 0
+com_apple_finder_fx_enable_extension_change_warning: 1
+
+com_apple_HIToolbox_AppleDictationAutoEnable: 0
