@@ -1,4 +1,5 @@
 ---
+microk8s_user: []
 microk8s_plugins:
   - dashboard
   - dns
