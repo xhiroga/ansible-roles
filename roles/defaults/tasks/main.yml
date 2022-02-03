@@ -29,4 +29,8 @@
   shell: |
     defaults write com.apple.HIToolbox AppleDictationAutoEnable {{ com_apple_HIToolbox_AppleDictationAutoEnable }}
 
+- name: com.apple.Safari
+  shell: |
+    defaults write com.apple.Safari ShowDevelopMenu {{ com_apple_Safari_ShowDevelopMenu }}
+
 # TODO: sudo killall Dock

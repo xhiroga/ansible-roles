@@ -15,3 +15,5 @@ com_apple_finder_apple_show_all_files: 0
 com_apple_finder_fx_enable_extension_change_warning: 1
 
 com_apple_HIToolbox_AppleDictationAutoEnable: 0
+
+com_apple_Safari_ShowDevelopMenu: 1 # 0: Hide, 1: Show
