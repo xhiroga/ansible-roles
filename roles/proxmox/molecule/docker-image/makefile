@@ -1,2 +1,2 @@
 docker-build:
-	docker build . -t xhiroga-ansible-role-proxmox-molecule
+	docker build . -t ghcr.io/xhiroga/ansible-role-proxmox

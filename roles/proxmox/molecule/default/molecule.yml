@@ -5,7 +5,7 @@ driver:
   name: docker
 platforms:
   - name: instance
-    image: xhiroga-ansible-role-proxmox-molecule
+    image: ghcr.io/xhiroga/ansible-role-proxmox
     pre_build_image: true
 provisioner:
   name: ansible
