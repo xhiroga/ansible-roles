@@ -33,4 +33,8 @@
   shell: |
     defaults write com.apple.Safari ShowDevelopMenu {{ com_apple_Safari_ShowDevelopMenu }}
 
+- name: com.apple.AppleMultitouchTrackpad
+  shell: |
+    defaults write com.apple.AppleMultitouchTrackpad Dragging {{ com_apple_AppleMultitouchTrackpad_Dragging }}
+
 # TODO: sudo killall Dock
