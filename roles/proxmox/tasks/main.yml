@@ -5,17 +5,3 @@
     path: /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js
     regexp: '^\s*let res = response\.result;$'
     replace: "                    orig_cmd();return;let res = response.result;"
-
-- name: Configure address of /etc/network/interfaces
-  ansible.builtin.replace:
-    path: /etc/network/interfaces
-    regexp: '^\s+address ((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)(\.(?!$)|\/\d{1,2}$)){4}$'
-    replace: "        address {{ address }}/24"
-  when: address is defined
-
-- name: Configure gateway of /etc/network/interfaces
-  ansible.builtin.replace:
-    path: /etc/network/interfaces
-    regexp: '^\s+gateway ((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)(\.(?!$)|$)){4}$'
-    replace: "        gateway {{ gateway }}/24"
-  when: gateway is defined

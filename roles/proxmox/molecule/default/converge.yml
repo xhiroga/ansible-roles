@@ -1,9 +1,6 @@
 ---
 - name: Converge
   hosts: all
-  vars:
-    address: "192.168.1.10"
-    gateway: "192.168.1.1"
   tasks:
     - name: "Include proxmox"
       include_role:
