@@ -1,0 +1,5 @@
+---
+# [Install Rust \- Rust Programming Language](https://www.rust-lang.org/tools/install)
+- name: Install rust
+  shell: "curl https://sh.rustup.rs -sSf | sh -s -- -y"
+  changed_when: false
