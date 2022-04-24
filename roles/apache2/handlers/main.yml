@@ -1,9 +1,0 @@
----
-# handlers file for apache2
-- name: Start apache2
-  ansible.builtin.systemd:
-    name: apache2.service
-    state: started
-    enabled: true
-  notify:
-    - Start apache2

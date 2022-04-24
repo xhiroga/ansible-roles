@@ -1,7 +1,0 @@
----
-# tasks file for apache2
-- name: Install apache2
-  apt:
-    autoclean: yes
-    autoremove: yes
-    name: apache2
