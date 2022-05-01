@@ -4,6 +4,7 @@
 - name: Install qemu-guest-agent
   apt:
     name: qemu-guest-agent
+  become: true
   when: ansible_system_vendor == 'QEMU'
   notify:
     - Start qemu-guest-agent

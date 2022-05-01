@@ -4,7 +4,7 @@
   apt:
     name: "{{ onepassword_pre_reqs_debian }}"
     update_cache: yes
-  become: yes
+  become: true
 
 # Note: apt-key is deprecated - [第675回 apt\-keyはなぜ廃止予定となったのか：Ubuntu Weekly Recipe｜gihyo\.jp … 技術評論社](https://gihyo.jp/admin/serial/01/ubuntu-recipe/0675)
 - name: Add the key for the 1Password apt repository
@@ -12,6 +12,7 @@
     keyring: "{{ onepassword_repo_debian_gpg_key_keyring }}"
     state: present
     url: "{{ onepassword_repo_debian_gpg_key_url }}"
+  become: true
 
 - name: Add repository {{ onepassword_repo_debian }}
   apt_repository:
@@ -19,13 +20,14 @@
     filename: "{{ onepassword_app_name }}"
     state: present
     update_cache: yes
+  become: true
 
 - name: Install {{ onepassword_app_name }}
   apt:
     name: "{{ onepassword_app_name }}"
     state: present
     update_cache: yes
-  become: yes
+  become: true
 
 # 1Password CLI
 # Cause unknown, but idepotence test fails.
@@ -33,7 +35,7 @@
   apt:
     name: "{{ onepassword_cli_pre_reqs_debian }}"
     update_cache: yes
-  become: yes
+  become: true
 
 - name: Create temporary directory
   ansible.builtin.tempfile:
@@ -66,7 +68,7 @@
     dest: /usr/local/bin/op
     mode: 755
     remote_src: yes
-  become: yes
+  become: true
 
 - name: Remove temporary directory
   ansible.builtin.file:
