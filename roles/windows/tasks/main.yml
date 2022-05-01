@@ -11,6 +11,11 @@
     - key: HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced
       value: HideFileExt
       data: 0
+    # [How to toggle Show/Hide hidden files in Windows through command line? \- Super User](https://superuser.com/questions/1151844/how-to-toggle-show-hide-hidden-files-in-windows-through-command-line)
+    - key: HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+      value: Hidden
+      data: 1
+      type: dword
 
 # [Enable WSL and SSH into Windows with Bash \| SimpleBackups Docs](https://simplebackups.com/docs/knowledge-base/tutorials/enable-wsl-and-ssh-into-windows-with-bash.html)
 - name: Enable ssh
