@@ -5,6 +5,7 @@
   hosts: all
   gather_facts: false
   tasks:
-  - name: Example assertion
-    assert:
-      that: true
+    - name: Test Rust and Cargo installed
+      ansible.builtin.shell: /root/.cargo/bin/cargo --version # $PATH is configured by ~/.bashrc, and verify step does not have path to cargo
+      register: cargo_version
+      failed_when: cargo_version.rc == 0
