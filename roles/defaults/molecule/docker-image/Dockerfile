@@ -19,5 +19,6 @@ RUN apt update && apt install gnustep-base-runtime -y
 # as macOS, preferences are stored under ~/Library/Preferences, instead of GNUstep.
 ENV GNUSTEP_USER_ROOT=/root/GNUstep
 COPY ./Defaults /root/GNUstep/Defaults
+RUN ln -s /usr/bin/true /usr/bin/killall
 
 WORKDIR /root
