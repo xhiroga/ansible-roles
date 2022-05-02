@@ -5,3 +5,9 @@
     - name: "Include dev"
       include_role:
         name: "dev"
+  vars:
+    nvm_node_versions:
+      - "14"
+    pyenv_versions:
+      - 3.6.15
+    pyenv_global_version: 3.6.15
