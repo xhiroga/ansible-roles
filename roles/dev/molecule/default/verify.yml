@@ -6,8 +6,8 @@
   gather_facts: false
   tasks:
     - name: Test anyenv installed
-      ansible.builtin.shell: "{{ ansible_env.HOME }}/.anyenv/bin/anyenv --version"
+      ansible.builtin.shell: "/root/.anyenv/bin/anyenv --version"
     - name: List node versions
       ansible.builtin.shell: '[ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh" && nvm list'
     - name: Test Rust and Cargo installed
-      ansible.builtin.shell: "{{ ansible_env.HOME }}/.cargo/bin/cargo --version "
+      ansible.builtin.shell: "/root/.cargo/bin/cargo --version "
