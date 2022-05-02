@@ -51,3 +51,25 @@
     eval "$(anyenv init -)"
     pyenv global {{ pyenv_global_version }}
   changed_when: false
+
+- name: Install rbenv
+  ansible.builtin.shell: |
+    export PATH=$HOME/.anyenv/bin:$PATH
+    anyenv install -s rbenv
+  args: { executable: /bin/bash }
+  changed_when: false
+
+- name: Install rbenv versions
+  ansible.builtin.shell: |
+    export PATH=$HOME/.anyenv/bin:$PATH
+    eval "$(anyenv init -)"
+    pyenv install -s {{ item }}
+  loop: "{{ rbenv_versions }}"
+  changed_when: false
+
+- name: Configure rbenv global version.
+  ansible.builtin.shell: |
+    export PATH=$HOME/.anyenv/bin:$PATH
+    eval "$(anyenv init -)"
+    rbenv global {{ rbenv_global_version }}
+  changed_when: false
