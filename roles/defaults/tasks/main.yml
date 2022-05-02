@@ -1,4 +1,30 @@
 ---
+- name: NSGlobalDomain, Trackpad, mouse, keyboard, Bluetooth accessories, and input
+  ansible.builtin.shell: |
+    # Tracking speed
+    defaults write NSGlobalDomain com.apple.trackpad.scaling {{ NSGlobalDomain_com_apple_trackpad_scaling }}
+
+    defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool {{ NSGlobalDomain_NSAutomaticSpellingCorrectionEnabled }}
+
+    # Trackpad: enable tap to click for this user and for the login screen
+    defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool {{ com_apple_driver_AppleBluetoothMultitouch_trackpad_Clicking }}
+    defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int {{ com_apple_mouse_tapBehavior }}
+    defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int {{ com_apple_mouse_tapBehavior }}
+
+    # Trackpad: enable dragging
+    defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Dragging -bool {{ com_apple_driver_AppleBluetoothMultitouch_trackpad_Dragging }}
+    defaults write com.apple.AppleMultitouchTrackpad Dragging -bool {{ com_apple_driver_AppleBluetoothMultitouch_trackpad_Dragging }}
+
+    # Set a blazingly fast keyboard repeat rate
+    defaults write NSGlobalDomain InitialKeyRepeat -int {{ NSGlobalDomain_InitialKeyRepeat }}
+    defaults write NSGlobalDomain KeyRepeat -int {{ NSGlobalDomain_KeyRepeat }}
+
+    # Touch bar show Control Strip
+    defaults write com.apple.touchbar.agent PresentationModeGlobal -string fullControlStrip
+
+    # No Siri in touch bar
+    defaults write com.apple.controlstrip FullCustomized '("com.apple.system.group.brightness","com.apple.system.mission-control","com.apple.system.launchpad","com.apple.system.group.keyboard-brightness","com.apple.system.group.media","com.apple.system.group.volume")'
+
 - name: com.apple.controlcenter
   ansible.builtin.shell: |
     defaults write com.apple.controlcenter "NSStatusItem Visible Battery" {{ com_apple_controlcenter_nsstatusitem_visible_battery }}
@@ -43,6 +69,10 @@
 - name: com.apple.symbolichotkeys
   ansible.builtin.shell: defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add {{ item.key }} "{{ item.value }}"
   loop: "{{ com_apple_symbolichotkeys_AppleSymbolicHotKeys | dict2items }}"
+
+- name: Enable keyboard shortcut
+  # https://apple.stackexchange.com/questions/405937/how-can-i-enable-keyboard-shortcut-preference-after-modifying-it-through-defaul
+  ansible.builtin.shell: /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
 - name: com.apple.AppleMultitouchTrackpad
   ansible.builtin.shell: |
