@@ -1,4 +1,5 @@
 FROM geerlingguy/docker-ubuntu2004-ansible
-RUN apt update && sudo apt install curl git -y;\
+# gcc is required to build ruby
+RUN apt update && sudo apt install curl gcc git -y;\
     git clone https://github.com/anyenv/anyenv ~/.anyenv;\
     echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bashrc
