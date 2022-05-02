@@ -63,7 +63,7 @@
   ansible.builtin.shell: |
     export PATH=$HOME/.anyenv/bin:$PATH
     eval "$(anyenv init -)"
-    pyenv install -s {{ item }}
+    rbenv install -s {{ item }}
   loop: "{{ rbenv_versions }}"
   changed_when: false
 
