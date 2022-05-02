@@ -1,3 +1,4 @@
 ---
+- import_tasks: anyenv.yml
 - import_tasks: nvm.yml
 - import_tasks: rust.yml

@@ -5,7 +5,9 @@
   hosts: all
   gather_facts: false
   tasks:
+    - name: Test anyenv installed
+      ansible.builtin.shell: "{{ ansible_env.HOME }}/.anyenv/bin/anyenv --version"
     - name: List node versions
-      shell: '[ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh" && nvm list'
+      ansible.builtin.shell: '[ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh" && nvm list'
     - name: Test Rust and Cargo installed
-      ansible.builtin.shell: /root/.cargo/bin/cargo --version # $PATH is configured by ~/.bashrc, and verify step does not have path to cargo
+      ansible.builtin.shell: "{{ ansible_env.HOME }}/.cargo/bin/cargo --version "

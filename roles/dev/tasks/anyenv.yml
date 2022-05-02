@@ -1,0 +1,14 @@
+---
+- name: Ensure anyenv installed
+  ansible.builtin.shell: "{{ ansible_env.HOME }}/.anyenv/bin/anyenv --version"
+
+- name: Install or update manifest
+  ansible.builtin.shell: yes | {{ ansible_env.HOME }}/.anyenv/bin/anyenv install --init || {{ ansible_env.HOME }}/.anyenv/bin/anyenv install --update
+
+- name: Install or update anyenv-update plugin
+  ansible.builtin.shell: |
+    mkdir -p $({{ ansible_env.HOME }}/.anyenv/bin/anyenv root)/plugins
+    git clone https://github.com/znz/anyenv-update.git $({{ ansible_env.HOME }}/.anyenv/bin/anyenv root)/plugins/anyenv-update || git -C $({{ ansible_env.HOME }}/.anyenv/bin/anyenv root)/plugins/anyenv-update pull
+
+- name: Update all **env and all plugins.
+  ansible.builtin.shell: "{{ ansible_env.HOME }}/.anyenv/bin/anyenv update"
