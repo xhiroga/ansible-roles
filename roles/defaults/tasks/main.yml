@@ -36,7 +36,7 @@
 
 - name: com.apple.dock
   ansible.builtin.shell: |
-    defaults write com.apple.dock autohide {{ com_apple_dock_autohide }}
+    defaults write com.apple.dock autohide - bool {{ com_apple_dock_autohide }}
 
     # Don’t automatically rearrange Spaces based on most recent use
     defaults write com.apple.dock mru-spaces -bool {{ com_apple_dock_mru_spaces }}
@@ -49,7 +49,7 @@
     # Set dock icon size to 36
     defaults write com.apple.dock tilesize -int {{ com_apple_dock_tilesize }}
 
-    killall dock
+    killall Dock
 
 - name: com.apple.finder
   ansible.builtin.shell: |
