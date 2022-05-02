@@ -23,17 +23,24 @@
   tags:
     - molecule-idempotence-notest
 
-- name: Update all **env and all plugins.
-  ansible.builtin.shell: |
-    export PATH=$HOME/.anyenv/bin:$PATH
-    anyenv update
-  args: { executable: /bin/bash }
-  changed_when: false
-
 - name: Install pyenv
   ansible.builtin.shell: |
     export PATH=$HOME/.anyenv/bin:$PATH
     anyenv install -s pyenv
+  args: { executable: /bin/bash }
+  changed_when: false
+
+- name: Install rbenv
+  ansible.builtin.shell: |
+    export PATH=$HOME/.anyenv/bin:$PATH
+    anyenv install -s rbenv
+  args: { executable: /bin/bash }
+  changed_when: false
+
+- name: Update all **env and all plugins
+  ansible.builtin.shell: |
+    export PATH=$HOME/.anyenv/bin:$PATH
+    anyenv update
   args: { executable: /bin/bash }
   changed_when: false
 
@@ -45,18 +52,11 @@
   loop: "{{ pyenv_versions }}"
   changed_when: false
 
-- name: Configure pyenv global version.
+- name: Configure pyenv global version
   ansible.builtin.shell: |
     export PATH=$HOME/.anyenv/bin:$PATH
     eval "$(anyenv init -)"
     pyenv global {{ pyenv_global_version }}
-  changed_when: false
-
-- name: Install rbenv
-  ansible.builtin.shell: |
-    export PATH=$HOME/.anyenv/bin:$PATH
-    anyenv install -s rbenv
-  args: { executable: /bin/bash }
   changed_when: false
 
 - name: Install rbenv versions
@@ -67,7 +67,7 @@
   loop: "{{ rbenv_versions }}"
   changed_when: false
 
-- name: Configure rbenv global version.
+- name: Configure rbenv global version
   ansible.builtin.shell: |
     export PATH=$HOME/.anyenv/bin:$PATH
     eval "$(anyenv init -)"

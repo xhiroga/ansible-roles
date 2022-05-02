@@ -59,7 +59,7 @@
 
 - name: com.apple.menuextra
   ansible.builtin.shell: |
-    defaults write com.apple.menuextra.clock DateFormat -string {{ com_apple_menuextra_clock_DataFormat }}
+    defaults write com.apple.menuextra.clock DateFormat -string "{{ com_apple_menuextra_clock_DataFormat }}"
 
 - name: com.apple.screencapture
   ansible.builtin.shell: |
