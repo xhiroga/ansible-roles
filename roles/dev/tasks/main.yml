@@ -8,6 +8,7 @@
 - import_tasks: anyenv.yml
 - import_tasks: git-secrets.yml
 - import_tasks: haskell.yml
+  tags: never
 - import_tasks: nvm.yml
 - import_tasks: rbenv.yml
 - import_tasks: rust.yml
