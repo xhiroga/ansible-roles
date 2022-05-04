@@ -6,6 +6,17 @@
   args: { executable: /bin/bash }
   changed_when: false
   ignore_errors: true
+  register: anyenv_versions
+
+- name: Install anyenv by brew
+  ansible.builtin.shell: brew install anyenv
+  when: anyenv_versions.rc == 127 and has_brew_version.rc != 127
+
+- name: Install anyenv
+  ansible.builtin.shell: |
+    git clone https://github.com/anyenv/anyenv ~/.anyenv
+    echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bashrc
+  when: anyenv_versions.rc == 127 and has_brew_version.rc == 127
 
 - name: Install or update manifest
   ansible.builtin.shell: |
