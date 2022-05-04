@@ -1,10 +1,8 @@
 ---
-nvm_version: "0.39.0"
+nvm_version: "0.39.1"
 nvm_node_versions:
   - "14"
   - "16"
-java_versions:
-  - 8.332.08.1-amzn
 pyenv_versions:
   - 3.6.15 # https://www.python.org/dev/peps/pep-0494/
   - 3.7.13 # https://www.python.org/dev/peps/pep-0537/
@@ -15,5 +13,14 @@ pyenv_global_version: 3.9.12
 rbenv_versions: # https://www.ruby-lang.org/en/downloads/releases/
   - 2.6.10
 rbenv_global_version: 2.6.10
-scala_versions:
+sdk_gradle_versions:
+  - 7.4.2
+sdk_java_versions:
+  - 8.332.08.1-amzn
+  - 22.1.0.r17-grl
+sdk_kotlin_versions:
+  - 1.6.21
+sdk_maven_versions:
+  - 3.8.5
+sdk_scala_versions:
   - 3.1.2
