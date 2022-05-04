@@ -1,10 +1,11 @@
 ---
-- name: Ensure anyenv installed
+- name: Check anyenv installed
   ansible.builtin.shell: |
     export PATH=$HOME/.anyenv/bin:$PATH
     anyenv --version
   args: { executable: /bin/bash }
   changed_when: false
+  ignore_errors: true
 
 - name: Install or update manifest
   ansible.builtin.shell: |
