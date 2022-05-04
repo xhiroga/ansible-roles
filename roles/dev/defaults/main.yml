@@ -4,8 +4,7 @@ nvm_node_versions:
   - "14"
   - "16"
 java_versions:
-  # I choose OpenJ9 than HotSpot based on https://www.royvanrijn.com/blog/2018/05/openj9-jvm-shootout/
-  - 8.0.272.j9-adpt
+  - 8.332.08.1-amzn
 pyenv_versions:
   - 3.6.15 # https://www.python.org/dev/peps/pep-0494/
   - 3.7.13 # https://www.python.org/dev/peps/pep-0537/
@@ -17,4 +16,4 @@ rbenv_versions: # https://www.ruby-lang.org/en/downloads/releases/
   - 2.6.10
 rbenv_global_version: 2.6.10
 scala_versions:
-  - 2.13.3
+  - 3.1.2

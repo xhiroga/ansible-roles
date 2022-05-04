@@ -1,0 +1,18 @@
+---
+- name: Install SDKMAN!
+  ansible.builtin.shell: curl -s https://get.sdkman.io | bash
+  changed_when: false
+
+- name: Install Java
+  ansible.builtin.shell: |
+    source ~/.sdkman/bin/sdkman-init.sh
+    sdk install java {{ item }}
+  args: { executable: /bin/bash }
+  loop: "{{ java_versions }}"
+
+- name: Install Scala
+  ansible.builtin.shell: |
+    source ~/.sdkman/bin/sdkman-init.sh
+    sdk install scala {{ item }}
+  args: { executable: /bin/bash }
+  loop: "{{ scala_versions }}"
