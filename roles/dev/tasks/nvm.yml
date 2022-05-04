@@ -6,6 +6,7 @@
   ansible.builtin.shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v{{ nvm_version }}/install.sh | bash
   args:
     creates: "$HOME/.nvm/nvm.sh"
+
 - name: Install node versions
   ansible.builtin.shell: '[ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh" && nvm install {{ item }}'
   loop: "{{ nvm_node_versions }}"

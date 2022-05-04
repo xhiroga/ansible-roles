@@ -3,7 +3,8 @@
 ---
 - name: Install GHCup
   ansible.builtin.shell: curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
-  changed_when: false
+  args:
+    creates: ${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env
 
 - name: Install Haskell tools
   ansible.builtin.shell: |

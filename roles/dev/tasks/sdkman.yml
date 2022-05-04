@@ -1,7 +1,8 @@
 ---
 - name: Install SDKMAN!
   ansible.builtin.shell: curl -s https://get.sdkman.io | bash
-  changed_when: false
+  args:
+    creates: ~/.sdkman/bin/sdkman-init.sh
 
 - name: Install Gradle
   ansible.builtin.shell: |
