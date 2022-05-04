@@ -1,0 +1,6 @@
+---
+- name: Install VSCode
+  ansible.builtin.shell: |
+    VSCODE_ZIP="VSCode-darwin-stable.zip"
+    code -h >/dev/null 2>&1 || wget 'https://go.microsoft.com/fwlink/?LinkID=620882' -O "$VSCODE_ZIP" && unzip "$VSCODE_ZIP" && rm -f "$VSCODE_ZIP" && mv "Visual Studio Code.app" /Applications && ln -fs "/Applications/Visual Studio Code.app/Contents/Resources/app/bin/code" "/usr/local/bin/code"
+  when: ansible_os_family == Darwin

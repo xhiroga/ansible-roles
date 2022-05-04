@@ -12,3 +12,4 @@
 - import_tasks: rbenv.yml
 - import_tasks: rust.yml
 - import_tasks: sdkman.yml
+- import_tasks: vscode.yml
