@@ -23,8 +23,7 @@
     export PATH=$HOME/.anyenv/bin:$PATH
     yes | anyenv install --init || anyenv install --update
   args: { executable: /bin/bash }
-  tags:
-    - molecule-idempotence-notest
+  tags: molecule-idempotence-notest
 
 - name: Install or update anyenv-update plugin
   ansible.builtin.shell: |
@@ -32,8 +31,7 @@
     mkdir -p $(anyenv root)/plugins
     git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update || git -C $(anyenv root)/plugins/anyenv-update pull
   args: { executable: /bin/bash }
-  tags:
-    - molecule-idempotence-notest
+  tags: molecule-idempotence-notest
 
 - name: Install pyenv
   ansible.builtin.shell: |

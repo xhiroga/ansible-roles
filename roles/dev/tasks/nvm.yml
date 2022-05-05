@@ -10,5 +10,4 @@
 - name: Install node versions
   ansible.builtin.shell: '[ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh" && nvm install {{ item }}'
   loop: "{{ nvm_node_versions }}"
-  tags:
-    - molecule-idempotence-notest
+  tags: molecule-idempotence-notest

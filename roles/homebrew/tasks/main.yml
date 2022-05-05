@@ -3,9 +3,9 @@
   lineinfile:
     path: /etc/sudoers
     state: present
-    regexp: '^%sudo   ALL=(ALL:ALL) ALL'
-    line: '%sudo   ALL=(ALL:ALL) NOPASSWD:ALL'
-    validate: '/usr/sbin/visudo -cf %s'
+    regexp: "^%sudo   ALL=(ALL:ALL) ALL"
+    line: "%sudo   ALL=(ALL:ALL) NOPASSWD:ALL"
+    validate: "/usr/sbin/visudo -cf %s"
   become: yes
 
 - name: Install requirements
@@ -25,8 +25,7 @@
     # [bash \- Bypassing prompt \(to press return\) in homebrew install script \- Stack Overflow](https://stackoverflow.com/questions/25535407/bypassing-prompt-to-press-return-in-homebrew-install-script)
     # When run on docker with molecule, stdin is not TTY. When run on Ubuntu, stdin is TTY.
     cmd: /bin/bash -cx "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" </dev/null
-  tags:
-    - molecule-idempotence-notest # idempotence execution fails, but converge again succeed.
+  tags: molecule-idempotence-notest # idempotence execution fails, but converge again succeed.
 
 - name: Add Homebrew to PATH
   lineinfile:
