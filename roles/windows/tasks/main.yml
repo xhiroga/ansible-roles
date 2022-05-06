@@ -80,3 +80,4 @@
     username: "{{ item.nas_username }}"
     password: "{{ item.nas_password }}"
   loop: "{{ win_mapped_drives }}"
+  no_log: true # to prevent to show `item.nas_password`
