@@ -70,8 +70,13 @@
   loop: "{{ winget_packages }}"
   when: item not in winget_list.stdout
 
+- name: Enable File and Printer Sharing
+  ansible.windows.win_command: netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
+
+- name: Enable Network Discovery
+  ansible.windows.win_command: netsh advfirewall firewall set rule group="Network Discovery" new enable=Yes
+
 # [Windows PCからローカルネットワーク内のSynology NASにファイルを保存する方法は？ \- Synology ナレッジセンター](https://kb.synology.com/ja-jp/DSM/tutorial/How_to_map_shared_folder_Windows_PC)
-# 実行後にExplorerを再起動する必要がある。
 - name: Create mapped drive with credentials that do not persist on the next logon
   community.windows.win_mapped_drive:
     letter: "{{ item.letter }}"
@@ -81,3 +86,7 @@
     password: "{{ item.nas_password }}"
   loop: "{{ win_mapped_drives }}"
   no_log: true # to prevent to show `item.nas_password`
+  register: win_mapped_drives
+
+- name: Restart Explorer
+  ansible.windows.win_shell: stop-process -name explorer –force
