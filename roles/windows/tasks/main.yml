@@ -74,7 +74,7 @@
 # 実行後にExplorerを再起動する必要がある。
 - name: Create mapped drive with credentials that do not persist on the next logon
   community.windows.win_mapped_drive:
-    letter: Z
+    letter: "{{ item.letter }}"
     path: \\{{ item.nas_name }}\{{ item.nas_shared_folder_name }}
     state: present
     username: "{{ item.nas_username }}"
