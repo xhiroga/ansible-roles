@@ -69,3 +69,14 @@
   ansible.windows.win_shell: winget install {{ item }}
   loop: "{{ winget_packages }}"
   when: item not in winget_list.stdout
+
+# [Windows PCからローカルネットワーク内のSynology NASにファイルを保存する方法は？ \- Synology ナレッジセンター](https://kb.synology.com/ja-jp/DSM/tutorial/How_to_map_shared_folder_Windows_PC)
+# 実行後にExplorerを再起動する必要がある。
+- name: Create mapped drive with credentials that do not persist on the next logon
+  community.windows.win_mapped_drive:
+    letter: Z
+    path: \\{{ item.nas_name }}\{{ item.nas_shared_folder_name }}
+    state: present
+    username: "{{ item.nas_username }}"
+    password: "{{ item.nas_password }}"
+  loop: "{{ win_mapped_drives }}"
