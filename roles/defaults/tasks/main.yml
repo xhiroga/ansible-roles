@@ -77,7 +77,7 @@
 - name: com.apple.AppleMultitouchTrackpad
   ansible.builtin.shell: |
     defaults write com.apple.AppleMultitouchTrackpad Dragging {{ com_apple_AppleMultitouchTrackpad_Dragging }}
-    defaults write com.apple.AppleBluetoothMultitouch Dragging {{ com_apple_AppleBluetoothMultitouch_Dragging | com_apple_AppleMultitouchTrackpad_Dragging }}
+    defaults write com.apple.AppleBluetoothMultitouch Dragging {{ com_apple_AppleMultitouchTrackpad_Dragging }}
 
 - name: com.apple.HIToolbox
   ansible.builtin.shell: |
