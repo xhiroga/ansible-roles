@@ -4,7 +4,7 @@
   pre_tasks:
     - name: Copy /etc/ssh/sshd_config
       ansible.builtin.copy:
-        src: /etc/ssh/sshd_config
+        src: etc/ssh/sshd_config
         dest: /etc/ssh/sshd_config
         mode: "0644"
       tags: molecule-idempotence-notest
