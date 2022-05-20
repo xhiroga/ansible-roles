@@ -1,0 +1,13 @@
+---
+- name: Configure authorized keys
+  ansible.posix.authorized_key:
+    user: "{{ ssh_user }}"
+    state: present
+    key: "{{ ssh_authorized_key }}"
+
+- name: パスワード認証の無効化
+  ansible.builtin.lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: "^PasswordAuthentication"
+    insertafter: "^#PasswordAuthentication"
+    line: "PasswordAuthentication no"
