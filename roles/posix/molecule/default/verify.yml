@@ -3,6 +3,11 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: Example assertion
+    - name: Show file
+      command: grep '{{ disable_password_authentication }}' '/etc/ssh/sshd_config'
+      register: result
+    - name: Assert output
       assert:
-        that: true
+        that: "'{{ disable_password_authentication }}' in result.stdout"
+  vars:
+    disable_password_authentication: "PasswordAuthentication no"
