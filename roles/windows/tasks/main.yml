@@ -16,6 +16,11 @@
       value: Hidden
       data: 1
       type: dword
+    # Shift + SpaceでIMEのOn/Offを切り替える
+    - key: HKCU:\SOFTWARE\Microsoft\IME\15.0\IMEJP\MSIME
+      value: KeyAssignmentShiftSpace
+      data: 2 # 2: IME-on/off, 3: Alt Width Space, 4: None
+      type: dword
 
 - name: Language for non-Unicode programs / Unicode 対応ではないプログラムの言語
   ansible.windows.win_shell: Set-WinSystemLocale ja-JP
