@@ -6,6 +6,7 @@
   register: has_brew_version
 
 - import_tasks: anyenv.yml
+- import_tasks: bun.yml
 - import_tasks: git-secrets.yml
 - import_tasks: haskell.yml
   tags: never

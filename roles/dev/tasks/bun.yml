@@ -1,0 +1,2 @@
+- name: Install bun
+  ansible.builtin.shell: curl https://bun.sh/install | bash
