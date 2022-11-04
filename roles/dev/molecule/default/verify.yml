@@ -12,7 +12,5 @@
         export PATH=$HOME/.anyenv/bin:$PATH
         eval "$(anyenv init -)"
         pyenv --version
-    - name: List node versions
-      ansible.builtin.shell: '[ -s "$HOME/.nvm/nvm.sh" ] && \. "$HOME/.nvm/nvm.sh" && nvm list'
     - name: Test Rust and Cargo installed
       ansible.builtin.shell: "$HOME/.cargo/bin/cargo --version "

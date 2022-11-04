@@ -1,2 +1,12 @@
+- name: Check bun stats
+  ansible.builtin.stat:
+    path: $HOME/.bun/bin/bun
+  register: bun
+
 - name: Install bun
   ansible.builtin.shell: curl https://bun.sh/install | bash
+  when: not bun.stat.exists
+
+- name: Upgrade bun
+  ansible.builtin.shell: bun upgrade
+  when: bun.stat.exists
