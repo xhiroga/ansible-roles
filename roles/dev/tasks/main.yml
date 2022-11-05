@@ -7,9 +7,9 @@
 
 - import_tasks: anyenv.yml
 - import_tasks: bun.yml
-- import_tasks: git-secrets.yml
 - import_tasks: haskell.yml
   tags: never
+- import_tasks: go-packages.yml
 - import_tasks: rbenv.yml
 - import_tasks: rust.yml
 - import_tasks: sdkman.yml

@@ -3,6 +3,9 @@ ghcup_ghc_version: 9.2.2 # [Download — The Glasgow Haskell Compiler](https://w
 ghcup_cabal_version: 3.6.2.0 # [Releases · haskell/cabal](https://github.com/haskell/cabal/releases)
 ghcup_hsl_version: 1.7.0.0 # [Releases · haskell/haskell\-language\-server](https://github.com/haskell/haskell-language-server/releases)
 
+go_packages:
+  - github.com/spf13/cobra-cli@latest
+
 pyenv_versions:
   - 3.6.15 # https://peps.python.org/pep-0494/
   - 3.7.13 # https://peps.python.org/pep-0537/
