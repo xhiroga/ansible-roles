@@ -30,4 +30,4 @@
     dest: "/usr/local/bin/code"
     state: link
   become: true
-  when: code.stat.exists = false
+  when: code.stat.exists == false
