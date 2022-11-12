@@ -8,5 +8,5 @@
   when: not bun.stat.exists
 
 - name: Upgrade bun
-  ansible.builtin.shell: bun upgrade
+  ansible.builtin.shell: $HOME/.bun/bin/bun upgrade
   when: bun.stat.exists
